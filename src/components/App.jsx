@@ -4,17 +4,11 @@ import { ContactForm } from './ContactForm';
 import { ContactList } from './ContactList';
 import { Filter } from './Filter';
 import { Container } from './App.styled.js';
+import initialContacts from '../initialContacts.json';
 
 export const App = () => {
   const [contacts, setContacts] = useState(() => {
-    return (
-      JSON.parse(localStorage.getItem('contacts')) ?? [
-        { id: 'id-1', name: 'Rosie Simpson', number: '559-12-56' },
-        { id: 'id-2', name: 'Hermione Kline', number: '443-89-12' },
-        { id: 'id-3', name: 'Eden Clements', number: '645-17-79' },
-        { id: 'id-4', name: 'Annie Copeland', number: '227-91-26' },
-      ]
-    );
+    return JSON.parse(localStorage.getItem('contacts')) ?? initialContacts;
   });
   const [filter, setFilter] = useState('');
 
